@@ -1,4 +1,4 @@
-import { Text, View, TextInput, TouchableOpacity } from "react-native";
+import { Text, View, ImageBackground, TouchableOpacity } from "react-native";
 
 export function Home() {
    return (
@@ -24,11 +24,16 @@ export function Home() {
                { title: "Battles", link: "/battles" },
                { title: "Galaxy Map", link: "/map" },
             ].map((item) => (
-               <View key={item.title}>
-                  <View className="bg-[#1F2937] mb-4 mx-5 p-8 rounded-lg flex items-center bg-factions-bg">
+               <ImageBackground 
+                  key={item.title}
+                  source={require("public/imgs/imperium.png")}
+                  resizeMode="cover"
+                  className="flex-1"
+               >
+                  <View className="bg-[#1F2937] mb-4 mx-5 p-8 rounded-lg flex items-center bg-factions bg-cover">
                      <Text className="text-white">{item.title}</Text>
                   </View>
-               </View>
+               </ImageBackground>
             ))}
          </View>
 
