@@ -1,6 +1,13 @@
 import { Text, View, ImageBackground, TouchableOpacity } from "react-native";
 
 export function Home() {
+   const wallpaperImage = {
+      factions: require("public/imgs/wallpaper/warhammer-40k-factions.jpg"),
+      lore: require("public/imgs/wallpaper/warhammer-40k-lore.jpg"),
+      battles: require("public/imgs/wallpaper/warhammer-40k-battles.jpg"),
+      galaxy: require("public/imgs/wallpaper/warhammer-40k-galaxy.jpg"),
+   }
+
    return (
       <View className="flex-1 bg-black">
          {/* Header */}
@@ -19,20 +26,21 @@ export function Home() {
             </View>
             <Text className="text-white text-2xl font-bold pt-5 pl-5 pb-3">Explore the Galaxy</Text>
             {[
-               { title: "Factions", link: "/factions" },
-               { title: "Lore", link: "/lore" },
-               { title: "Battles", link: "/battles" },
-               { title: "Galaxy Map", link: "/map" },
+               { title: "Factions", link: "/factions", wallpaper: wallpaperImage.factions },
+               { title: "Lore", link: "/lore", wallpaper: wallpaperImage.lore },
+               { title: "Battles", link: "/battles", wallpaper: wallpaperImage.battles },
+               { title: "Galaxy Map", link: "/map", wallpaper: wallpaperImage.galaxy },
             ].map((item) => (
-               <ImageBackground 
+               <ImageBackground
                   key={item.title}
-                  source={require("public/imgs/imperium.png")}
+                  source={item.wallpaper}
                   resizeMode="cover"
-                  className="flex-1"
+                  style={{
+                     borderRadius: 15
+                  }}
+                  className="bg-[#1F2937] mb-4 mx-5 p-7 rounded-lg flex items-center bg-factions bg-cover overflow-hidden opacity-90"
                >
-                  <View className="bg-[#1F2937] mb-4 mx-5 p-8 rounded-lg flex items-center bg-factions bg-cover">
-                     <Text className="text-white">{item.title}</Text>
-                  </View>
+                  <Text className="text-white font-bold text-2xl">{item.title}</Text>
                </ImageBackground>
             ))}
          </View>
