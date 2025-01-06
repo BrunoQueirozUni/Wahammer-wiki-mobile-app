@@ -1,6 +1,6 @@
 import { View } from "react-native";
 
-export function Factions() {
+export function MapScreen() {
    return (
       <View>
          
