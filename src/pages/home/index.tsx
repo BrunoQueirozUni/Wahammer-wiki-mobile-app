@@ -1,5 +1,4 @@
 import { RootStackParamList } from "~/types";
-import { useNavigation } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { Text, View, ImageBackground, TouchableOpacity } from "react-native";
@@ -42,29 +41,13 @@ export function Home({ navigation }: Props) {
                         }}
                         className="bg-[#1F2937] mb-4 rounded-lg flex items-center bg-factions bg-cover overflow-hidden opacity-90"
                      >
-                        <View className="bg-black/50 mx-5 p-7 w-full rounded-md">
+                        <View className="bg-black/45 mx-5 p-7 w-full rounded-md">
                            <Text className="text-white font-bold text-2xl text-center tracking-widest">{item.title}</Text>
                         </View>
                      </ImageBackground>
                   </TouchableOpacity>
                ))}
             </View>
-         </View>
-
-         {/* Footer */}
-         <View className="w-full bg-[#111827] p-2 flex flex-row items-center justify-around absolute bottom-0">
-            <TouchableOpacity>
-               <Text className="text-white text-sm">Home</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-               <Text className="text-white text-sm">Lore</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-               <Text className="text-white text-sm">Battle</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-               <Text className="text-white text-sm">Map</Text>
-            </TouchableOpacity>
          </View>
       </View>
    );
