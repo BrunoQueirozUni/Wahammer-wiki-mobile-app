@@ -6,10 +6,8 @@ export type RootStackParamList = {
    Lore: undefined;
    Battles: undefined;
    Map: undefined;
-};
 
-export type FactionsStackParamList = {
-   FactionsScreen: undefined; // Adicionado
+   // Factions
    ImperiumOfMan: undefined;
    Caos: undefined;
    Tyranids: undefined;
@@ -19,7 +17,10 @@ export type FactionsStackParamList = {
    TauEmpire: undefined;
    Ctan: undefined;
    OldOnes: undefined;
+
+   // Lore
 };
 
 
-export type NavigationProps = NativeStackNavigationProp<RootStackParamList & FactionsStackParamList>;
+
+export type NavigationProps = NativeStackNavigationProp<RootStackParamList>;

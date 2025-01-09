@@ -1,8 +1,8 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { ImageBackground, Text, TouchableOpacity, View, ScrollView } from "react-native";
-import { FactionsStackParamList, RootStackParamList } from "~/types";
+import { RootStackParamList } from "~/types";
 
-type Props = NativeStackScreenProps<FactionsStackParamList, "FactionsScreen">;
+type Props = NativeStackScreenProps<RootStackParamList, "Factions">;
 
 export function FactionsScreen({ navigation }: Props) {
    const factionsWallpaper = {
@@ -20,7 +20,7 @@ export function FactionsScreen({ navigation }: Props) {
    return (
       <View className="flex-1 bg-black">
          <View className="flex-1">
-            <ScrollView className="flex-1 p-5 mb-12">
+            <ScrollView className="flex-1 p-5 mb-14">
                {[
                   { title: "Imperium of Man", link: "ImperiumOfMan", wallpaper: factionsWallpaper.imperium },
                   { title: "Caos", link: "Caos", wallpaper: factionsWallpaper.caos },
@@ -33,7 +33,7 @@ export function FactionsScreen({ navigation }: Props) {
                   { title: "Old ones", link: "Old ones", wallpaper: factionsWallpaper.oldones },
                ].map((item) => (
                   <TouchableOpacity
-                     onPress={() => navigation.navigate(item.link as keyof FactionsStackParamList)}
+                     onPress={() => navigation.navigate(item.link as keyof RootStackParamList)}
                      key={item.title}
                   >
                      <ImageBackground
