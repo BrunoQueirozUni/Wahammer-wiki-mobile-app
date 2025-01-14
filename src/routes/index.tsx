@@ -30,7 +30,7 @@ const routeTitles: Record<string, string> = {
    Ctan: "C'tan",
    OldOnes: "Old Ones",
    Factions: "Factions",
-   Home: "Home",
+   Home: "Warhammer 40K",
  };
 
 export function AppRoutes() {

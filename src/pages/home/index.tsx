@@ -1,7 +1,7 @@
 import { RootStackParamList } from "~/types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import { Text, View, ImageBackground, TouchableOpacity } from "react-native";
+import { Text, View, ImageBackground, TouchableOpacity, ScrollView } from "react-native";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
@@ -24,30 +24,32 @@ export function Home({ navigation }: Props) {
                </Text>
             </View>
             <Text className="text-white text-2xl font-bold pt-5 pl-5">Explore the Galaxy</Text>
-            <View className="p-4">
-               {[
-                  { title: "Factions", link: "Factions", wallpaper: wallpaperImage.factions },
-                  { title: "Lore", link: "Lore", wallpaper: wallpaperImage.lore },
-                  { title: "Battles", link: "Battles", wallpaper: wallpaperImage.battles },
-                  { title: "Galaxy Map", link: "Map", wallpaper: wallpaperImage.galaxy },
-               ].map((item) => (
-                  <TouchableOpacity onPress={() => navigation.navigate(item.link as keyof RootStackParamList)} key={item.title}>
-                     <ImageBackground
-                        key={item.title}
-                        source={item.wallpaper}
-                        resizeMode="cover"
-                        style={{
-                           borderRadius: 15
-                        }}
-                        className="bg-[#1F2937] mb-4 rounded-lg flex items-center bg-factions bg-cover overflow-hidden opacity-90"
-                     >
-                        <View className="bg-black/45 mx-5 p-7 w-full rounded-md">
-                           <Text className="text-white font-bold text-2xl text-center tracking-widest">{item.title}</Text>
-                        </View>
-                     </ImageBackground>
-                  </TouchableOpacity>
-               ))}
-            </View>
+            <ScrollView>
+               <View className="p-4">
+                  {[
+                     { title: "Factions", link: "Factions", wallpaper: wallpaperImage.factions },
+                     { title: "Lore", link: "Lore", wallpaper: wallpaperImage.lore },
+                     { title: "Battles", link: "Battles", wallpaper: wallpaperImage.battles },
+                     { title: "Galaxy Map", link: "Map", wallpaper: wallpaperImage.galaxy },
+                  ].map((item) => (
+                     <TouchableOpacity onPress={() => navigation.navigate(item.link as keyof RootStackParamList)} key={item.title}>
+                        <ImageBackground
+                           key={item.title}
+                           source={item.wallpaper}
+                           resizeMode="cover"
+                           style={{
+                              borderRadius: 15
+                           }}
+                           className="bg-[#1F2937] mb-4 rounded-lg flex items-center bg-factions bg-cover overflow-hidden opacity-90"
+                        >
+                           <View className="bg-black/45 mx-5 p-7 w-full rounded-md">
+                              <Text className="text-white font-bold text-2xl text-center tracking-widest">{item.title}</Text>
+                           </View>
+                        </ImageBackground>
+                     </TouchableOpacity>
+                  ))}
+               </View>
+            </ScrollView>
          </View>
       </View>
    );
